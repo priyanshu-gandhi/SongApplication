@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 fun SongItem(modifier: Modifier = Modifier, songName : String ,songLength : String, isFav : Boolean, songId : Int, onClick:(songId : Int) -> Unit) {
 
     Card(
-        modifier = Modifier.fillMaxSize().padding(top=40.dp, start = 16.dp, end=16.dp), shape = RoundedCornerShape(12.dp)
+        modifier = Modifier.fillMaxSize().padding (top=40.dp, start = 16.dp, end=16.dp), shape = RoundedCornerShape(12.dp)
     ){
         Row(
             modifier = Modifier

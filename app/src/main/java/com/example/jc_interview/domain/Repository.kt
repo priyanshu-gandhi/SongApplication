@@ -16,12 +16,12 @@ class Repository @Inject constructor(private val apiService : SongsInterfece,
             list.map { it.toDomain() }
         }
 
-    suspend fun refreshSongs() {
-        val networkSongs = apiService.getSongs()
+    suspend fun refreshSongs(page: Int): List<Song> {
+        val networkSongs =  apiService.getSongs(page)
 
-        songDao.insertSongs(
-            networkSongs.map { it.toEntity() }
-        )
+        songDao.insertSongs(networkSongs.map { it.toEntity() })
+
+        return  networkSongs
     }
 
     suspend fun toggleFavorite(songId: Int, currentStatus: Boolean) {
